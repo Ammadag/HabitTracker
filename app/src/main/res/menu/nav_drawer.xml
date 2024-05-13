@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/nav_profile"
+    android:title="Profile"
+    android:icon="@drawable/baseline_co_present_24"/>
+    <item
+        android:id="@+id/nav_today"
+        android:title="Today"
+        android:icon="@drawable/baseline_today_24"/>
+    <item
+        android:id="@+id/nav_Stats"
+        android:title="Your Stats"
+        android:icon="@drawable/baseline_query_stats_24"/>
+    <item
+        android:id="@+id/nav_challenge"
+        android:title="Challenges"
+        android:icon="@drawable/baseline_challenge"/>
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings"
+        android:icon="@drawable/baseline_settings_24"/>
+    <item
+        android:id="@+id/nav_Try_free"
+        android:title="Try Free"
+        android:icon="@drawable/baseline_try_24"/>
+</menu>
