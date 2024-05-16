@@ -13,9 +13,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.annotation.RawRes
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.lottie.LottieAnimationView
 import com.example.habittracker.R
 import com.example.habittracker.activity.MainActivity
 import com.example.habittracker.adapters.OnItemClick
@@ -43,8 +45,7 @@ class HomeFragment : Fragment(), SensorEventListener {
     private val dayFormat = SimpleDateFormat("EEE", Locale.getDefault())
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -58,7 +59,6 @@ class HomeFragment : Fragment(), SensorEventListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupUI()
         calenderDayAndDates()
         clickListeners()
         walkingSteps()
@@ -97,7 +97,7 @@ class HomeFragment : Fragment(), SensorEventListener {
     }
 
     private fun registerSensors() {
-        viewModel.registerSensor(Sensor.TYPE_STEP_COUNTER)
+        viewModel.registerSensor(Sensor.TYPE_ACCELEROMETER)
     }
 
 
@@ -106,41 +106,66 @@ class HomeFragment : Fragment(), SensorEventListener {
         roomVM.getData().observe(viewLifecycleOwner) { dataList ->
 
 
-
-                binding.homeRv.adapter = RVAdapter(dataList, object : OnItemClick {
-                    override fun onUpdate(userinfo: RvInfo) {
-                        showAlertDialog(userinfo)
-                    }
-
-
-                    override fun onDelete(id: Int) {
-                        roomVM.deleteItem(id)
-                    }
+            binding.homeRv.adapter = RVAdapter(dataList, object : OnItemClick {
+                override fun onUpdate(userinfo: RvInfo) {
+                    showAlertDialog(userinfo)
+                }
 
 
-                })
+                override fun onDelete(id: Int) {
+                    roomVM.deleteItem(id)
+                }
+
+
+            })
             if (dataList.isEmpty()) {
+
                 binding.emptyRv.visibility = View.VISIBLE
                 binding.homeRv.visibility = View.GONE
 
 
-            }else{
+            } else {
+
                 binding.emptyRv.visibility = View.GONE
                 binding.homeRv.visibility = View.VISIBLE
             }
 
         }
+//        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+//            override fun onMove(
+//                recyclerView: RecyclerView,
+//                viewHolder: RecyclerView.ViewHolder,
+//                target: RecyclerView.ViewHolder
+//            ): Boolean {
+//                return false
+//            }
+//
+//
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//
+//                val position = viewHolder.adapterPosition
+//                roomVM.deleteItem(position)
+//                binding.homeRv.adapter?.notifyItemRemoved(position)
+//
+//            }
+//
+//        }
+//        )
+//
+//    }
+//        Snackbar.make(binding.root, "Item Deleted", Snackbar.LENGTH_LONG)
+//            .setAction("Undo", View.OnClickListener {
+//                roomVM.insertData(roomVM.undoDelete())
+//                binding.homeRv.adapter?.notifyItemInserted(roomVM.undoDelete())
+//            })
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.registerSensor(Sensor.TYPE_STEP_COUNTER)
-    }
+
 
     override fun onPause() {
         super.onPause()
 
-        viewModel.unregisterSensor(Sensor.TYPE_STEP_COUNTER)
+        viewModel.unregisterSensor(Sensor.TYPE_ACCELEROMETER)
 
     }
 
@@ -151,8 +176,8 @@ class HomeFragment : Fragment(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.let {
-            if (it.sensor.type == Sensor.TYPE_STEP_COUNTER) {
-                viewModel.handleStepCounterEvent(it)
+            if (it.sensor.type == Sensor.TYPE_ACCELEROMETER) {
+                viewModel.handleAccelerometerEvent(it)
             }
         }
     }
@@ -161,7 +186,7 @@ class HomeFragment : Fragment(), SensorEventListener {
 
     }
 
-    fun String.toEditable(): Editable {
+    private fun String.toEditable(): Editable {
         return Editable.Factory.getInstance().newEditable(this)
     }
 
@@ -172,10 +197,10 @@ class HomeFragment : Fragment(), SensorEventListener {
         dialog.setContentView(dialogBinding.root)
         dialog.setCancelable(false)
         dialog.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT,
         )
-        dialog.window?.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         if (userinfo != null) {

@@ -10,29 +10,29 @@ import kotlinx.coroutines.launch
 
 
 class RoomViewModel: ViewModel() {
-    private val TrackerDb: UserDB? = UserDB._INSTANCE
+    private val trackerDb: UserDB? = UserDB.INSTANCE
 
 
 
     fun insertData(userinfo: RvInfo) {
         viewModelScope.launch {
-            TrackerDb!!.userDao().insertTable(userinfo)
+            trackerDb!!.userDao().insertTable(userinfo)
         }
     }
 
     fun getData(): LiveData<List<RvInfo?>> {
-        return TrackerDb!!.userDao().getAllItem()
+        return trackerDb!!.userDao().getAllItem()
     }
 
     fun updateData( userinfo: RvInfo) {
         viewModelScope.launch {
-            TrackerDb!!.userDao().updateTable(userinfo)
+            trackerDb!!.userDao().updateTable(userinfo)
         }
     }
 
     fun deleteItem(id: Int){
         viewModelScope.launch {
-            TrackerDb!!.userDao().deleteById(id)
+            trackerDb!!.userDao().deleteById(id)
         }
     }
 }

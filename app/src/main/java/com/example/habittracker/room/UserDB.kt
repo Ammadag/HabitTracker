@@ -16,20 +16,20 @@ abstract class UserDB : RoomDatabase() {
 
         ///enhanced the creation of single instance of database while pointing out to a singleton database object "INSTANCE"
         @Volatile
-        var _INSTANCE: UserDB? = null
+        var INSTANCE: UserDB? = null
 
         @OptIn(InternalCoroutinesApi::class)
         fun getInstance(context: Context): UserDB {
-            if (_INSTANCE != null) return _INSTANCE!!
+            if (INSTANCE != null) return INSTANCE!!
             synchronized(this) {
-                _INSTANCE = Room
+                INSTANCE = Room
                     .databaseBuilder(
                         context,
                         UserDB::class.java,
                         "todo_database"
                     )
                     .build()
-                return _INSTANCE!!
+                return INSTANCE!!
             }
         }
     }

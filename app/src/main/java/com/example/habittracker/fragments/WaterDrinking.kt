@@ -37,7 +37,6 @@ class WaterDrinking: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWaterDrinkingBinding.inflate(inflater, container, false)
-
         roomVM = ViewModelProvider(requireActivity())[RoomViewModel::class.java]
         setupUI()
         return binding.root
@@ -113,7 +112,7 @@ class WaterDrinking: Fragment() {
             })
         }
     }
-    fun String.toEditable(): Editable {
+    private fun String.toEditable(): Editable {
         return Editable.Factory.getInstance().newEditable(this)
     }
     private fun showAlertDialog(userinfo: RvInfo?) {

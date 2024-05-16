@@ -7,33 +7,38 @@ import com.example.habittracker.databinding.RvItemViewBinding
 import com.example.habittracker.room.RvInfo
 
 
-class RVAdapter(val dataList: List<RvInfo?>, val listner: OnItemClick) : RecyclerView.Adapter<RVAdapter.viewHolder>() {
-    inner class viewHolder(val binding: RvItemViewBinding) : RecyclerView.ViewHolder(binding.root)
+class RVAdapter(private val dataList: List<RvInfo?>, private val listener: OnItemClick) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
+    inner class ViewHolder(val binding: RvItemViewBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RvItemViewBinding.inflate(
             LayoutInflater.from(parent.context),
             parent, false
         )
-        return viewHolder(binding)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return dataList.size
     }
 
-    override fun onBindViewHolder(holder: viewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val data = dataList[position]
         holder.binding.title.text = data?.title
         holder.binding.desc.text = data?.desc
         holder.binding.root.setOnClickListener {
-            listner.onUpdate(data!!)
+            listener.onUpdate(data!!)
 
         }
+        holder.binding.btnDel.setOnClickListener {
+            listener.onDelete(data!!.id)
+        }
     }
-     fun getItemAtPosition(position: Int): RvInfo? {
-        return dataList[position]
-    }
+
+//     fun getItemAtPosition(position: Int): RvInfo? {
+//        return dataList[position]
+//    }
+
 
 }

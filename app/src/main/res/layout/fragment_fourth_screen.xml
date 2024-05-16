@@ -16,14 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="Morning yoga"
+        android:text="@string/morning_yoga"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun"
+        android:text="@string/let_s_start_a_healthy_lifestyle_with_us_we_can_determine_your_diet_every_day_healthy_eating_is_fun"
         android:padding="25dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-class AuthViewModel() : ViewModel() {
+class AuthViewModel: ViewModel() {
 
     private val firebaseAuth = FirebaseAuth.getInstance()
 
@@ -25,7 +25,7 @@ class AuthViewModel() : ViewModel() {
         viewModelScope.launch {
             try {
                 val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
-                _loginResult.value = result.user != null
+                _loginResult.value =  result.user != null
             } catch (e: Exception) {
                 _loginResult.value = false
             }

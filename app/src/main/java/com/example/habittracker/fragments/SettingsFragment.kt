@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.habittracker.R
 import com.example.habittracker.databinding.FragmentSettingsBinding
-import com.example.habittracker.databinding.FragmentWaterDrinkingBinding
 
 class SettingsFragment : Fragment() {
 
@@ -19,7 +19,9 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-
+binding.btnBack.setOnClickListener {
+    findNavController().navigate(R.id.homeFragment)
+}
         return binding.root
     }
 }

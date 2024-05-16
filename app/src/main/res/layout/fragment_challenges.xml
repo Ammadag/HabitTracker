@@ -12,7 +12,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textColor="@color/white"
-    android:text="CHALLENGES"
+    android:text="@string/challenges"
     android:textStyle="bold"
     android:textSize="20sp"
     android:layout_marginTop="40dp"
@@ -25,7 +25,7 @@
     android:layout_width="60dp"
     android:layout_height="40dp"
     android:layout_margin="30dp"
-    android:text="back"
+    android:text="@string/back"
     android:textSize="5sp"
     android:textColor="@color/black"
     app:layout_constraintStart_toStartOf="parent"
@@ -67,14 +67,14 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:text="Happy Morning Challenge"
+        android:text="@string/happy_morning_challenge"
         android:layout_margin="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="7 Days Challenges"
+        android:text="@string/_7_days_challenges"
         android:layout_margin="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -93,7 +93,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Join Now"
+            android:text="@string/join_now"
+            android:textColor="@color/white"
             android:gravity="center"/>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -160,7 +161,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Join Now"
+                android:text="@string/join_now"
+                android:textColor="@color/white"
                 android:gravity="center"/>
             </com.google.android.material.card.MaterialCardView>
 

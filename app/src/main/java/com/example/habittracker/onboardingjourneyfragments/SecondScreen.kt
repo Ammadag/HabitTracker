@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.habittracker.R
-import com.example.habittracker.databinding.FragmentFourthScreenBinding
 import com.example.habittracker.databinding.FragmentSecondScreenBinding
 
 

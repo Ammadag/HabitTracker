@@ -10,16 +10,16 @@
         android:id="@+id/fab_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="20dp"
-        android:src="@drawable/baseline_add_24"/>
+        android:importantForAccessibility="auto"
+        android:src="@drawable/baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradiiant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,28 +27,27 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:background="@drawable/gradiiant">
+            android:layout_height="wrap_content">
 
 
             <Button
                 android:id="@+id/toggle_drawer"
                 android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
                 android:background="@drawable/ic_menu"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <ImageView
                 android:id="@+id/btn_pro"
                 android:layout_width="70dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_margin="20dp"
-                android:src="@drawable/tryfree"
                 android:clickable="true"
+                android:elevation="20dp"
+                android:src="@drawable/tryfree"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,6 +56,7 @@
                 android:layout_width="330dp"
                 android:layout_height="100dp"
                 android:layout_margin="30dp"
+                app:cardElevation="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toggle_drawer">
@@ -71,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10sp"
-                        android:text="Today"
+                        android:text="@string/today"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -81,31 +81,32 @@
                         android:id="@+id/crd_tday"
                         android:layout_width="70dp"
                         android:layout_height="50dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:background="@drawable/gradiiant">
+                            android:background="@drawable/gradiiant"
+                            android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/today"
                                 android:layout_width="match_parent"
                                 android:layout_height="20dp"
-                                android:textSize="14sp"
                                 android:gravity="center"
-                                android:textColor="@color/white"/>
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/d_tday"
                                 android:layout_width="match_parent"
                                 android:layout_height="28dp"
+                                android:gravity="center"
                                 android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:gravity="center"/>
+                                android:textSize="18sp" />
                         </LinearLayout>
 
                     </com.google.android.material.card.MaterialCardView>
@@ -115,8 +116,8 @@
                         android:id="@+id/crd_d1"
                         android:layout_width="70dp"
                         android:layout_height="50dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
                         android:backgroundTint="#00FFFFFF"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/crd_tday">
@@ -125,21 +126,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/d1"
                                 android:layout_width="match_parent"
                                 android:layout_height="20dp"
-                                android:textSize="14sp"
                                 android:gravity="center"
-                                android:textColor="@color/white"/>
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/d_d1"
                                 android:layout_width="match_parent"
                                 android:layout_height="28dp"
+                                android:gravity="center"
                                 android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:gravity="center"/>
+                                android:textSize="18sp" />
                         </LinearLayout>
 
                     </com.google.android.material.card.MaterialCardView>
@@ -148,8 +150,8 @@
                         android:id="@+id/crd_d2"
                         android:layout_width="70dp"
                         android:layout_height="50dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
                         android:backgroundTint="#00FFFFFF"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/crd_d1">
@@ -158,21 +160,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/d2"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:textSize="14sp"
-                            android:gravity="center"
-                            android:textColor="@color/white"/>
 
-                        <TextView
-                            android:id="@+id/d_d2"
-                            android:layout_width="match_parent"
-                            android:layout_height="28dp"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:gravity="center"/>
+                            <TextView
+                                android:id="@+id/d2"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/d_d2"
+                                android:layout_width="match_parent"
+                                android:layout_height="28dp"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="18sp" />
                         </LinearLayout>
 
                     </com.google.android.material.card.MaterialCardView>
@@ -181,30 +184,32 @@
                         android:id="@+id/crd_d3"
                         android:layout_width="70dp"
                         android:layout_height="50dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
                         android:backgroundTint="#00FFFFFF"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/crd_d2">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/d3"
                                 android:layout_width="match_parent"
                                 android:layout_height="20dp"
-                                android:textSize="14sp"
                                 android:gravity="center"
-                                android:textColor="@color/white"/>
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/d_d3"
                                 android:layout_width="match_parent"
                                 android:layout_height="28dp"
+                                android:gravity="center"
                                 android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:gravity="center"/>
+                                android:textSize="18sp" />
 
                         </LinearLayout>
 
@@ -217,7 +222,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="280dp"
                         android:layout_marginTop="10dp"
-                        android:text=">>>"
+                        android:text="@string/arrow"
                         android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -233,7 +238,7 @@
                 android:layout_width="150dp"
                 android:layout_height="210dp"
                 android:layout_margin="20dp"
-                android:background="@drawable/grey_gradient"
+                app:cardElevation="70dp"
                 app:layout_constraintEnd_toStartOf="@id/cycling"
                 app:layout_constraintStart_toStartOf="@id/card_today"
                 app:layout_constraintTop_toBottomOf="@id/card_today">
@@ -250,13 +255,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="150dp"
-                    android:text="Water consumption" />
+                    android:text="@string/water_consumption" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
                     android:layout_marginStart="63dp"
+                    android:layout_marginTop="60dp"
                     android:src="@drawable/ic_water" />
 
                 <TextView
@@ -264,7 +269,7 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="180dp"
-                    android:hint="40%"
+                    android:hint="@string/_40"
                     android:textSize="20sp" />
             </com.google.android.material.card.MaterialCardView>
 
@@ -274,6 +279,7 @@
                 android:layout_height="210dp"
                 android:layout_margin="20dp"
                 android:elevation="10dp"
+                app:cardElevation="70dp"
                 app:layout_constraintEnd_toEndOf="@id/card_today"
                 app:layout_constraintStart_toEndOf="@id/water_Card"
                 app:layout_constraintTop_toBottomOf="@id/card_today">
@@ -291,13 +297,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="150dp"
-                    android:text="Cycling" />
+                    android:text="@string/cycling" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="60dp"
-                    android:src="@drawable/ic_cycling"/>
+                    android:src="@drawable/ic_cycling" />
 
                 <TextView
                     android:id="@+id/cycle_distance"
@@ -305,8 +311,8 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="45dp"
                     android:layout_marginTop="170dp"
-                    android:hint="KM"
                     android:gravity="center"
+                    android:hint="@string/km"
                     android:textSize="14sp" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -317,6 +323,7 @@
                 android:layout_height="210dp"
                 android:layout_margin="20dp"
                 android:elevation="10dp"
+                app:cardElevation="70dp"
                 app:layout_constraintEnd_toEndOf="@id/water_Card"
                 app:layout_constraintStart_toStartOf="@id/water_Card"
                 app:layout_constraintTop_toBottomOf="@id/water_Card">
@@ -334,7 +341,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="150dp"
-                    android:text="Walking" />
+                    android:text="@string/walking" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -348,7 +355,7 @@
                     android:layout_height="30dp"
                     android:layout_marginStart="45dp"
                     android:layout_marginTop="180dp"
-                    android:hint="km"
+                    android:hint="@string/km"
                     android:textSize="20sp" />
             </com.google.android.material.card.MaterialCardView>
 
@@ -359,6 +366,7 @@
                 android:layout_height="210dp"
                 android:layout_marginStart="38dp"
                 android:layout_marginTop="20dp"
+                app:cardElevation="70dp"
                 app:layout_constraintEnd_toEndOf="@id/cycling"
                 app:layout_constraintStart_toEndOf="@id/walking"
                 app:layout_constraintTop_toBottomOf="@id/cycling">
@@ -375,13 +383,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="150dp"
-                    android:text="Water" />
+                    android:text="@string/water" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
                     android:layout_marginStart="63dp"
+                    android:layout_marginTop="60dp"
                     android:src="@drawable/ic_water" />
 
                 <TextView
@@ -389,7 +397,7 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="65dp"
                     android:layout_marginTop="180dp"
-                    android:hint="40%"
+                    android:hint="@string/_40"
                     android:textSize="20sp" />
             </com.google.android.material.card.MaterialCardView>
 
@@ -399,7 +407,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Latest Activity"
+                android:text="@string/latest_activity"
                 android:textColor="@color/md_theme_dark_errorContainer"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@id/water_p"
@@ -408,8 +416,8 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="380dp"
+                android:layout_width="360dp"
+                android:layout_height="360dp"
                 android:backgroundTint="#00000000"
                 app:layout_constraintEnd_toEndOf="@id/l_act"
                 app:layout_constraintStart_toStartOf="@id/l_act"
@@ -418,24 +426,25 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/home_rv"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-<com.google.android.material.card.MaterialCardView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    app:cardCornerRadius="25dp">
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp" />
 
-              <ImageView
-                  android:id="@+id/empty_rv"
-                  android:layout_width="250dp"
-                  android:layout_height="250dp"
-                  android:src="@drawable/no_item"
-                  android:elevation="10dp"/>
+                <ImageView
+                    android:id="@+id/empty_rv"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/emptylis"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/home_rv"
+                    app:layout_constraintStart_toStartOf="@id/home_rv"
+                    app:layout_constraintTop_toTopOf="@id/home_rv" />
+
+
             </com.google.android.material.card.MaterialCardView>
 
-
-            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

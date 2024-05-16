@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.habittracker.R
-import com.example.habittracker.databinding.FragmentLoginBinding
 import com.example.habittracker.databinding.FragmentWelcomeBinding
 
 

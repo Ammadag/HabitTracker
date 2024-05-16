@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.habittracker.R
 import com.example.habittracker.databinding.FragmentChallengesBinding
-import com.example.habittracker.databinding.FragmentSettingsBinding
 
 
 class ChallengesFragment : Fragment() {

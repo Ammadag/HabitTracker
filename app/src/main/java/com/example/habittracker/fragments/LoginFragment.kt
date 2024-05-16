@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.habittracker.R
@@ -20,7 +19,6 @@ class LoginFragment : Fragment() {
     private lateinit var progressBar: ProgressBar
     private lateinit var loadingOverlay: View
     private lateinit var authVM: AuthViewModel
-
 
 
     override fun onCreateView(
@@ -41,18 +39,19 @@ class LoginFragment : Fragment() {
 
         clickListeners()
 
-
     }
 
     private fun logInResult() {
-        authVM.loginResult.observe(viewLifecycleOwner, Observer { isSuccess ->
-            hideLoading()
+        authVM.loginResult.observe(viewLifecycleOwner){ isSuccess ->
+
             if (isSuccess) {
                 findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+                hideLoading()
             } else {
                 Toast.makeText(requireActivity(), "login Failed", Toast.LENGTH_SHORT).show()
+                hideLoading()
             }
-        })
+        }
     }
 
     private fun clickListeners() {
@@ -61,10 +60,11 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
             }
             btnLogin.setOnClickListener {
-                showLoading()
+
                 val email = binding.inputemail.text.toString()
                 val password = binding.inputpass.text.toString()
                 authVM.loginUser(email, password)
+                showLoading()
                 logInResult()
             }
 
@@ -75,6 +75,7 @@ class LoginFragment : Fragment() {
     private fun showLoading() {
         progressBar.visibility = View.VISIBLE
         loadingOverlay.visibility = View.VISIBLE
+
     }
 
     private fun hideLoading() {

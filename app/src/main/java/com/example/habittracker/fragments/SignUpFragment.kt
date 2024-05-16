@@ -11,11 +11,9 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.habittracker.R
-import com.example.habittracker.databinding.FragmentLoginBinding
 import com.example.habittracker.databinding.FragmentSignUpBinding
 import com.example.habittracker.viewmodel.AuthViewModel
 
@@ -49,25 +47,25 @@ class SignUpFragment : Fragment() {
 
         settingUsername()
         signUpResults()
-        ClickListeners()
+        clickListeners()
 
 
     }
 
     private fun signUpResults() {
 
-        authVM.signupResult.observe(viewLifecycleOwner, Observer { isSuccess ->
+        authVM.signupResult.observe(viewLifecycleOwner) { isSuccess ->
+            hideLoading()
             if (isSuccess) {
-                hideLoading()
                 Toast.makeText(requireActivity(), "Registration Successful", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
             } else {
                 Toast.makeText(requireActivity(), "Registration Failed", Toast.LENGTH_SHORT).show()
             }
-        })
+        }
     }
 
-    private fun ClickListeners() {
+    private fun clickListeners() {
         binding.apply {
             btnLogIn.setOnClickListener {
                 findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)

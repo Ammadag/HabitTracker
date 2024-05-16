@@ -8,20 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.habittracker.R
 import com.example.habittracker.databinding.ActivityMainBinding
 import com.example.habittracker.room.UserDB
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    var drawerLayout: DrawerLayout? = null // Corrected property name
+    private var drawerLayout: DrawerLayout? = null
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,15 +27,17 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = binding.drawerLayout
 
     }
-     fun navDrawerSetup() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+    private fun navDrawerSetup() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
 
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             val sharedPreferences = getSharedPreferences("UserName", Context.MODE_PRIVATE)
             val username = sharedPreferences.getString("username", "")
-            updateUsernameInNavDrawerHeader(username?: "")
+            updateUsernameInNavDrawerHeader(username ?: "")
             when (menuItem.itemId) {
                 R.id.nav_profile -> navController.navigate(R.id.profileFragment)
                 R.id.nav_today -> navController.navigate(R.id.homeFragment)
@@ -51,15 +47,25 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_Try_free -> navController.navigate(R.id.subscriptionFragment)
             }
 
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                if (destination.id == R.id.loginFragment || destination.id == R.id.signUpFragment) {
+                    drawerLayout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                } else {
+                    drawerLayout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                }
+            }
+
             drawerLayout?.closeDrawers()
             true
         }
 
     }
-    fun openDrawer(){
+
+    fun openDrawer() {
         drawerLayout?.openDrawer(GravityCompat.START)
     }
-    fun updateUsernameInNavDrawerHeader(username: String) {
+
+    private fun updateUsernameInNavDrawerHeader(username: String) {
         val headerView = binding.navView.getHeaderView(0)
         val usernameTextView = headerView.findViewById<TextView>(R.id.usrnm)
         usernameTextView.text = username

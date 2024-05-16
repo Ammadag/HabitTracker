@@ -27,10 +27,11 @@
             android:id="@+id/title"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="340dp"
-            app:boxBackgroundColor="#BFD6C9C9"
+            app:boxBackgroundColor="#41B1ACAC"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Title"
+           android:layout_margin="20dp"
+            android:hint="@string/title"
+            app:hintTextColor="@color/white"
             app:boxCornerRadiusTopEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +50,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:boxBackgroundColor="#BFD6C9C9"
-            android:hint="Description"
+            android:layout_margin="15dp"
+            app:boxBackgroundColor="#41B1ACAC"
+            android:hint="@string/description"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title">
@@ -71,7 +73,7 @@
             android:layout_width="74dp"
             android:layout_height="32dp"
             android:layout_margin="48dp"
-            app:cardBackgroundColor="#DCED4D8D"
+            app:cardBackgroundColor="#DCFF112D"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/desc">
@@ -81,7 +83,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="Cancel"/>
+                android:text="@string/cancel"/>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -99,7 +101,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="Add" />
+                android:text="@string/add" />
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
