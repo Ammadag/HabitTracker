@@ -5,13 +5,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.habittracker.room.dao.StatsDao
+import com.example.habittracker.room.dao.UserDao
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
 
-@Database(entities = [RvInfo::class], version = 1, exportSchema = false)
+@Database(entities = [(RvInfo::class),(StatsRvInfo::class)], version = 1, exportSchema = false)
 abstract class UserDB : RoomDatabase() {
     abstract fun userDao(): UserDao
+
+    abstract fun statsDao(): StatsDao
     companion object {
 
         ///enhanced the creation of single instance of database while pointing out to a singleton database object "INSTANCE"

@@ -28,6 +28,8 @@ import com.github.mikephil.charting.utils.ColorTemplate
 
 class WaterDrinking: Fragment() {
 
+
+
     private var _binding: FragmentWaterDrinkingBinding? = null
     private val binding get() = _binding!!
     private lateinit var roomVM: RoomViewModel
@@ -56,6 +58,14 @@ class WaterDrinking: Fragment() {
             proV.setOnClickListener {
                 findNavController().navigate(R.id.action_waterDrinking_to_subscriptionFragment)
             }
+//            reminderSwitch.setOnCheckedChangeListener { _, isChecked ->
+//                if (isChecked) {
+//                    Toast.makeText(requireContext(), "Water Reminder Enabled", Toast.LENGTH_SHORT).show()
+//                    scheduleNotificationWorker()
+//                } else {
+//                    cancelNotificationWorker()
+//                }
+
 
         }
     }
@@ -63,30 +73,29 @@ class WaterDrinking: Fragment() {
     private fun charts() {
         val chart = binding.chart
         val data = BarData()
-        data.barWidth = 0.5f // Adjust the bar width as needed
+        data.barWidth =5f
         data.addDataSet(getDataSet())
         chart.data = data
         chart.description.text = "My Chart"
         chart.animateXY(2000, 2000)
         chart.invalidate()
-        chart.description.text = "" // Remove description
-        chart.axisLeft.setDrawGridLines(false) // Hide grid lines on the left axis
-        chart.axisRight.setDrawGridLines(false) // Hide grid lines on the right axis
-        chart.xAxis.setDrawGridLines(false) // Hide grid lines on the x-axis
-        chart.legend.isEnabled = false // Hide legend
-        chart.setDrawValueAboveBar(false) // Hide values above bars
-
+        chart.description.text = ""
+        chart.axisLeft.setDrawGridLines(false)
+        chart.axisRight.setDrawGridLines(false)
+        chart.xAxis.setDrawGridLines(false)
+        chart.legend.isEnabled = false
+        chart.setDrawValueAboveBar(false)
     }
 
     private fun getDataSet(): BarDataSet {
         val valueSet1 = arrayListOf(
-            BarEntry(10f, 0f), // Day 1
-            BarEntry(20f, 1f), // Day 2
-            BarEntry(30f, 2f), // Day 3
-            BarEntry(40f, 3f), // Day 4
-            BarEntry(50f, 4f), // Day 5
-            BarEntry(60f, 5f), // Day 6
-            BarEntry(70f, 6f)  // Day 7
+            BarEntry(5f, 0f), // Day 1
+            BarEntry(10f, 1f), // Day 2
+            BarEntry(20f, 2f), // Day 3
+            BarEntry(30f, 3f), // Day 4
+            BarEntry(40f, 4f), // Day 5
+            BarEntry(50f, 5f), // Day 6
+            BarEntry(60f, 6f)  // Day 7
         )
 
         val barDataSet1 = BarDataSet(valueSet1, "Days").apply {
@@ -150,6 +159,23 @@ class WaterDrinking: Fragment() {
 
         dialog.show()
     }
+//    private fun scheduleNotificationWorker() {
+//
+//        Handler(Looper.getMainLooper())
+//        val workRequest = PeriodicWorkRequest.Builder(NotificationWorker::class.java, 15, TimeUnit.MINUTES)
+//            .build()
+//
+//        WorkManager.getInstance(requireContext()).enqueueUniquePeriodicWork(
+//            "water_drinking_reminder",
+//            ExistingPeriodicWorkPolicy.UPDATE,
+//            workRequest
+//        )
+//    }
+//
+//    private fun cancelNotificationWorker() {
+//        WorkManager.getInstance(requireContext()).cancelUniqueWork("water_drinking_reminder")
+//    }
+
 
 }
 

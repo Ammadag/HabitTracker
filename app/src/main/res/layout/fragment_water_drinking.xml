@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:contentDescription="@string/back_button"
             android:src="@drawable/baseline_arrow_back_ios_new_24"/>
     </com.google.android.material.card.MaterialCardView>
 
@@ -52,13 +53,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today's Target"
+                android:text="@string/today_s_target"
                 android:layout_margin="20dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switchcompat"
+                android:id="@+id/reminder_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -67,11 +68,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reminder"
+                android:text="@string/reminder"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/switchcompat"
-                app:layout_constraintBottom_toBottomOf="@id/switchcompat"/>
+                app:layout_constraintEnd_toStartOf="@id/reminder_switch"
+                app:layout_constraintBottom_toBottomOf="@id/reminder_switch"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/crd_1"
                 android:layout_width="150dp"
@@ -91,16 +92,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="8L"
+                    android:text="@string/_8l"
                     android:textColor="@color/white"
                     android:layout_marginTop="18dp"
                     android:layout_marginStart="55dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Water Intake"
+                    android:text="@string/water_intake"
                     android:textColor="@color/white"
-                    android:textSize="10sp"
+                    android:textSize="13sp"
                     android:layout_marginTop="45dp"
                     android:layout_marginStart="50dp"/>
             </com.google.android.material.card.MaterialCardView>
@@ -122,16 +123,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="2400"
+                    android:text="@string/_2400"
                     android:textColor="@color/white"
                     android:layout_marginTop="18dp"
                     android:layout_marginStart="55dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Foot Steps"
+                    android:text="@string/foot_steps"
                     android:textColor="@color/white"
-                    android:textSize="10sp"
+                    android:textSize="13sp"
                     android:layout_marginTop="45dp"
                     android:layout_marginStart="55dp"/>
             </com.google.android.material.card.MaterialCardView>
@@ -144,7 +145,7 @@
         android:id="@+id/a_c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity Progress"
+        android:text="@string/activity_progress"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/today_target"
         app:layout_constraintTop_toBottomOf="@id/today_target"
@@ -171,7 +172,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Latest Activity"
+        android:text="@string/latest_activity"
         app:layout_constraintStart_toStartOf="@id/crd_stats"
         app:layout_constraintTop_toBottomOf="@id/crd_stats"
         android:layout_marginTop="15dp"

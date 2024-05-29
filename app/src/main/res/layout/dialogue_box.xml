@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
+    android:layout_width="330dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    app:cardCornerRadius="18dp"
-    >
+    app:cardElevation="20dp"
+    app:cardCornerRadius="18dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/grey_gradient">
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -26,13 +25,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/title"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="340dp"
-            app:boxBackgroundColor="#41B1ACAC"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-           android:layout_margin="20dp"
+            android:layout_margin="20dp"
             android:hint="@string/title"
-            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#41B1ACAC"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
             app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView2">
@@ -40,20 +41,23 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:imeOptions="actionNext"
                 android:inputType="text"
-                android:maxLines="1"
-                android:imeOptions="actionNext"/>
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/desc"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="340dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            app:boxBackgroundColor="#41B1ACAC"
             android:hint="@string/description"
-            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#41B1ACAC"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title">
@@ -61,9 +65,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
                 android:inputType="text"
-                android:maxLines="2"
-                android:imeOptions="actionDone"/>
+                android:maxLines="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,8 +86,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textColor="@color/white"
-                android:text="@string/cancel"/>
+                android:text="@string/cancel"
+                android:textColor="@color/white" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -100,8 +104,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textColor="@color/white"
-                android:text="@string/add" />
+                android:text="@string/add"
+                android:textColor="@color/white" />
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

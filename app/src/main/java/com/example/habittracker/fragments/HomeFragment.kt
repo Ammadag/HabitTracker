@@ -13,11 +13,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import androidx.annotation.RawRes
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.airbnb.lottie.LottieAnimationView
 import com.example.habittracker.R
 import com.example.habittracker.activity.MainActivity
 import com.example.habittracker.adapters.OnItemClick
@@ -47,7 +45,6 @@ class HomeFragment : Fragment(), SensorEventListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
         roomVM = ViewModelProvider(requireActivity())[RoomViewModel::class.java]
@@ -197,8 +194,9 @@ class HomeFragment : Fragment(), SensorEventListener {
         dialog.setContentView(dialogBinding.root)
         dialog.setCancelable(false)
         dialog.window?.setLayout(
+          630,
             ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
+
         )
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -232,6 +230,7 @@ class HomeFragment : Fragment(), SensorEventListener {
                 (requireActivity() as MainActivity).openDrawer()
 
             }
+
             waterCard.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_waterDrinking)
             }
@@ -243,6 +242,15 @@ class HomeFragment : Fragment(), SensorEventListener {
             }
             cardToday.setOnClickListener {
                 showCalenderDialog()
+            }
+            bmi.setOnClickListener{
+                findNavController().navigate(R.id.action_homeFragment_to_BMIFragment)
+            }
+            walking.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_statsFragment)
+            }
+            cycling.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_statsFragment)
             }
 
         }

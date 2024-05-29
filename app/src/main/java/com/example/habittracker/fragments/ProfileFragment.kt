@@ -20,9 +20,9 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-binding.backBtn.setOnClickListener {
-    findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
-}
+        binding.backBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
+        }
 
         return binding.root
 
@@ -37,6 +37,7 @@ binding.backBtn.setOnClickListener {
         binding.tvUsername.text = username
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

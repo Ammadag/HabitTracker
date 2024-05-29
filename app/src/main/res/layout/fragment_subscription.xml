@@ -13,7 +13,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="36dp"
-        android:backgroundTint="#6379E6"
+        android:backgroundTint="#009DA4C6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     <ImageView
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Subscription"
+        android:text="@string/subscription"
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
     
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/crd_sub"
-        android:layout_width="360dp"
+        android:layout_width="340dp"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_sub_bg"
+            android:src="@drawable/ic_subb"
             android:layout_marginStart="170dp"/>
         
         <TextView
@@ -77,7 +77,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/crd_unlock"
-        android:layout_width="360dp"
+        android:layout_width="340dp"
         android:layout_height="180dp"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="@id/crd_sub"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:text="Unlock Monumental Habits"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="#A6000000"
             android:layout_marginTop="10dp"
             android:layout_marginStart="80dp"/>
@@ -157,11 +157,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$19.00"
+            android:text="$19"
             android:textStyle="bold"
             android:textColor="#9C6273DD"
             android:textSize="28sp"
-            android:layout_margin="10dp"/>
+            android:layout_margin="20dp"/>
         
         <TextView
             android:layout_width="wrap_content"
@@ -170,7 +170,7 @@
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="#90473939"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="55dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -195,11 +195,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$29.00"
+            android:text="$29"
             android:textStyle="bold"
             android:textColor="#9C6273DD"
             android:textSize="28sp"
-            android:layout_margin="10dp"/>
+            android:layout_margin="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -208,7 +208,7 @@
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="#90473939"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="55dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -237,7 +237,7 @@
             android:textStyle="bold"
             android:textColor="#9C6273DD"
             android:textSize="28sp"
-            android:layout_margin="15dp"/>
+            android:layout_margin="18dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -246,7 +246,7 @@
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="#90473939"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="65dp"
             android:layout_marginStart="10dp"/>
 
         <TextView

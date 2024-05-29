@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradiiant">
@@ -351,17 +350,18 @@
 
                 <TextView
                     android:id="@+id/distance_walking"
-                    android:layout_width="65dp"
+                    android:layout_width="78dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="45dp"
+                    android:layout_marginStart="40dp"
                     android:layout_marginTop="180dp"
                     android:hint="@string/km"
-                    android:textSize="20sp" />
+                    android:gravity="center"
+                    android:textSize="14sp" />
             </com.google.android.material.card.MaterialCardView>
 
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/water_p"
+                android:id="@+id/bmi"
                 android:layout_width="150dp"
                 android:layout_height="210dp"
                 android:layout_marginStart="38dp"
@@ -381,44 +381,39 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="53dp"
+                    android:layout_marginStart="33dp"
                     android:layout_marginTop="150dp"
-                    android:text="@string/water" />
+                    android:text="@string/calculate_bmi" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="63dp"
-                    android:layout_marginTop="60dp"
-                    android:src="@drawable/ic_water" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="48dp"
+                    android:src="@drawable/baseline_challenge" />
 
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="65dp"
-                    android:layout_marginTop="180dp"
-                    android:hint="@string/_40"
-                    android:textSize="20sp" />
             </com.google.android.material.card.MaterialCardView>
 
 
             <TextView
                 android:id="@+id/l_act"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="@string/latest_activity"
                 android:textColor="@color/md_theme_dark_errorContainer"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@id/water_p"
+                app:layout_constraintEnd_toEndOf="@id/bmi"
                 app:layout_constraintStart_toStartOf="@id/walking"
-                app:layout_constraintTop_toBottomOf="@id/water_p" />
+                app:layout_constraintTop_toBottomOf="@id/bmi" />
 
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="360dp"
                 android:layout_height="360dp"
-                android:backgroundTint="#00000000"
+                android:backgroundTint="#41A38D8D"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="@id/l_act"
                 app:layout_constraintStart_toStartOf="@id/l_act"
                 app:layout_constraintTop_toBottomOf="@id/l_act">
