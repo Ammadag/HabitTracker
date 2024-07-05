@@ -42,13 +42,14 @@ class LoginFragment : Fragment() {
     }
 
     private fun logInResult() {
-        authVM.loginResult.observe(viewLifecycleOwner){ isSuccess ->
+        authVM.loginResult.observe(viewLifecycleOwner) { isSuccess ->
 
             if (isSuccess) {
                 findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
                 hideLoading()
             } else {
-                Toast.makeText(requireActivity(), "login Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(),
+                    getString(R.string.login_failed), Toast.LENGTH_SHORT).show()
                 hideLoading()
             }
         }

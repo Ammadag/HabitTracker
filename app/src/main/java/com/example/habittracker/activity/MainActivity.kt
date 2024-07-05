@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         navDrawerSetup()
         drawerLayout = binding.drawerLayout
-
     }
 
     private fun navDrawerSetup() {
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.nav_profile -> navController.navigate(R.id.profileFragment)
                 R.id.nav_today -> navController.navigate(R.id.homeFragment)
-                R.id.nav_Stats -> navController.navigate(R.id.homeFragment)
+                R.id.nav_Stats -> navController.navigate(R.id.statsFragment)
                 R.id.nav_challenge -> navController.navigate(R.id.challengesFragment)
                 R.id.nav_settings -> navController.navigate(R.id.settingsFragment)
                 R.id.nav_Try_free -> navController.navigate(R.id.subscriptionFragment)

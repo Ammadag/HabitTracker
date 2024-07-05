@@ -26,12 +26,12 @@
         android:text="@string/let_s_start_a_healthy_lifestyle_with_us_we_can_determine_your_diet_every_day_healthy_eating_is_fun"
         android:padding="25dp"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/final_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/baseline_navigate_next_24"
-        app:rippleColor="#3BABBF"/>
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/final_fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:src="@drawable/baseline_navigate_next_24"-->
+<!--        app:rippleColor="#3BABBF"/>-->
 
 </LinearLayout>

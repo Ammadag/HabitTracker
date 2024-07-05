@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
-import com.example.habittracker.R
+import com.example.habittracker.constants.OnboardingFragment
 import com.example.habittracker.databinding.FragmentFirstScreenBinding
 
-class FirstScreen : Fragment() {
+class FirstScreen : Fragment(), OnboardingFragment {
     private var _binding: FragmentFirstScreenBinding? = null
     private val binding get() = _binding!!
 
@@ -18,13 +17,13 @@ class FirstScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFirstScreenBinding.inflate(inflater, container, false)
-        val view = binding.root
-        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
-        binding.fab.setOnClickListener {
-            viewPager?.currentItem = 1
-        }
-
-        return view
+        return binding.root
     }
 
+    override fun getFragment(): Fragment = this
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

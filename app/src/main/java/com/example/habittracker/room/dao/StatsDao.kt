@@ -11,6 +11,7 @@ import com.example.habittracker.room.StatsRvInfo
 
 @Dao
 interface StatsDao {
+
     @Query("SELECT * FROM StatsRvInfo")
     fun getAllItem(): LiveData<List<StatsRvInfo?>>
 
@@ -22,4 +23,5 @@ interface StatsDao {
 
     @Query("DELETE FROM StatsRvInfo WHERE id = :id")
     suspend fun deleteById(id:Int)
+
 }

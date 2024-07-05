@@ -26,12 +26,12 @@
         android:text="Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever"
         android:padding="25dp"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/baseline_navigate_next_24"
-        app:rippleColor="#3BABBF"/>
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:src="@drawable/baseline_navigate_next_24"-->
+<!--        app:rippleColor="#3BABBF"/>-->
 
 </LinearLayout>

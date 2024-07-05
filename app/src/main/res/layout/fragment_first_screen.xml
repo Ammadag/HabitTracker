@@ -26,13 +26,13 @@
         android:text="@string/don_t_worry_if_you_have_trouble_determining_your_goals_we_can_help_you_determine_and_track_your_goals"
         android:padding="25dp"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:importantForAccessibility="no"
-        android:src="@drawable/baseline_navigate_next_24"
-        app:rippleColor="#3BABBF"/>
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:importantForAccessibility="no"-->
+<!--        android:src="@drawable/baseline_navigate_next_24"-->
+<!--        app:rippleColor="#3BABBF"/>-->
 
 </LinearLayout>

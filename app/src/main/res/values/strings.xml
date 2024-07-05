@@ -62,6 +62,8 @@
     <string name="_18">18</string>
     <string name="subscription">Subscription</string>
     <string name="total_tasks">Total Tasks</string>
+    <string name="login_failed">login Failed</string>
+    <string name="fabButton">Next button</string>
 
     <string-array name="default_array">
         <item name="1">1</item>

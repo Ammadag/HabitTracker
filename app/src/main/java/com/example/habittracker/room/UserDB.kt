@@ -18,7 +18,6 @@ abstract class UserDB : RoomDatabase() {
     abstract fun statsDao(): StatsDao
     companion object {
 
-        ///enhanced the creation of single instance of database while pointing out to a singleton database object "INSTANCE"
         @Volatile
         var INSTANCE: UserDB? = null
 

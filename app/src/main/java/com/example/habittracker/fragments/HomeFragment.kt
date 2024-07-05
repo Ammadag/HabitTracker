@@ -62,6 +62,29 @@ class HomeFragment : Fragment(), SensorEventListener {
         cyclingDistance()
 
     }
+    override fun onPause() {
+        super.onPause()
+
+        viewModel.unregisterSensor(Sensor.TYPE_ACCELEROMETER)
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        event?.let {
+            if (it.sensor.type == Sensor.TYPE_ACCELEROMETER) {
+                viewModel.handleAccelerometerEvent(it)
+            }
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
+    }
 
     private fun showCalenderDialog() {
 
@@ -128,60 +151,12 @@ class HomeFragment : Fragment(), SensorEventListener {
             }
 
         }
-//        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
-//            override fun onMove(
-//                recyclerView: RecyclerView,
-//                viewHolder: RecyclerView.ViewHolder,
-//                target: RecyclerView.ViewHolder
-//            ): Boolean {
-//                return false
-//            }
-//
-//
-//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//
-//                val position = viewHolder.adapterPosition
-//                roomVM.deleteItem(position)
-//                binding.homeRv.adapter?.notifyItemRemoved(position)
-//
-//            }
-//
-//        }
-//        )
-//
-//    }
-//        Snackbar.make(binding.root, "Item Deleted", Snackbar.LENGTH_LONG)
-//            .setAction("Undo", View.OnClickListener {
-//                roomVM.insertData(roomVM.undoDelete())
-//                binding.homeRv.adapter?.notifyItemInserted(roomVM.undoDelete())
-//            })
-    }
-
-
-
-    override fun onPause() {
-        super.onPause()
-
-        viewModel.unregisterSensor(Sensor.TYPE_ACCELEROMETER)
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
-    override fun onSensorChanged(event: SensorEvent?) {
-        event?.let {
-            if (it.sensor.type == Sensor.TYPE_ACCELEROMETER) {
-                viewModel.handleAccelerometerEvent(it)
-            }
-        }
-    }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
-    }
 
     private fun String.toEditable(): Editable {
         return Editable.Factory.getInstance().newEditable(this)
@@ -278,4 +253,30 @@ class HomeFragment : Fragment(), SensorEventListener {
 
 
 }
-
+//        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+//            override fun onMove(
+//                recyclerView: RecyclerView,
+//                viewHolder: RecyclerView.ViewHolder,
+//                target: RecyclerView.ViewHolder
+//            ): Boolean {
+//                return false
+//            }
+//
+//
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//
+//                val position = viewHolder.adapterPosition
+//                roomVM.deleteItem(position)
+//                binding.homeRv.adapter?.notifyItemRemoved(position)
+//
+//            }
+//
+//        }
+//        )
+//
+//    }
+//        Snackbar.make(binding.root, "Item Deleted", Snackbar.LENGTH_LONG)
+//            .setAction("Undo", View.OnClickListener {
+//                roomVM.insertData(roomVM.undoDelete())
+//                binding.homeRv.adapter?.notifyItemInserted(roomVM.undoDelete())
+//            })

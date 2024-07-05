@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.habittracker.R
+import com.example.habittracker.constants.OnboardingFragment
+import com.example.habittracker.databinding.FragmentFirstScreenBinding
 import com.example.habittracker.databinding.FragmentThirdScreenBinding
 
-
-class ThirdScreen : Fragment() {
-
+class ThirdScreen : Fragment(), OnboardingFragment {
     private var _binding: FragmentThirdScreenBinding? = null
     private val binding get() = _binding!!
 
@@ -20,12 +20,13 @@ class ThirdScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentThirdScreenBinding.inflate(inflater, container, false)
-        val view = binding.root
-        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
-        binding.fab.setOnClickListener {
-            viewPager?.currentItem = 3
-        }
+        return binding.root
+    }
 
-        return view
+    override fun getFragment(): Fragment = this
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
